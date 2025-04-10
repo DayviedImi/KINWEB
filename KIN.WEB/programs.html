@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Our Programs - KidsInspiring Nation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3b82f6; /* Changed from orange to blue */
+      --secondary: #f59e0b;
+      --accent: #10b981;
+      --dark: #1a202c;
+      --light: #f7fafc;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f8fafc;
+    }
+    
+    .fun-font {
+      font-family: 'Fredoka One', cursive;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%);
+    }
+    
+    /* Curved Navbar Styles */
+    .navbar-container {
+      position: relative;
+    }
+    
+    .navbar-curved {
+      background-color: white;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-curved:before,
+    .navbar-curved:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+    }
+    
+    .navbar-curved:before {
+      left: -20px;
+      border-bottom-right-radius: 20px;
+      box-shadow: 10px 0 0 0 white;
+    }
+    
+    .navbar-curved:after {
+      right: -20px;
+      border-bottom-left-radius: 20px;
+      box-shadow: -10px 0 0 0 white;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: var(--dark);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .btn-accent {
+      background-color: var(--accent);
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-accent:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .hover-grow {
+      transition: all 0.3s ease;
+    }
+    
+    .hover-grow:hover {
+      transform: scale(1.02);
+    }
+    
+    .text-gradient {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .program-card {
+      transition: all 0.3s ease;
+      perspective: 1000px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .program-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .program-card-inner {
+      position: relative;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    
+    .program-card:hover .program-card-inner {
+      transform: rotateY(5deg);
+    }
+    
+    .level-card {
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--primary);
+      border-radius: 8px;
+    }
+    
+    .level-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .video-thumbnail {
+      transition: all 0.3s ease;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .video-thumbnail:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    }
+    
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .video-thumbnail:hover .play-button {
+      opacity: 1;
+    }
+    
+    .icon-bounce {
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+      40% {transform: translateY(-15px);}
+      60% {transform: translateY(-7px);}
+    }
+    .expandable-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+      background-color: #f8fafc;
+    }
+    
+    .expandable-content-inner {
+      padding: 20px;
+    }
+    
+    .toggle-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 20px;
+      background-color: #f1f5f9;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      color: #1e40af;
+      border-radius: 8px;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .toggle-button:hover {
+      background-color: #e2e8f0;
+    }
+    
+    .toggle-button i {
+      transition: transform 0.3s ease;
+    }
+    
+    .toggle-button.active i {
+      transform: rotate(180deg);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 15px;
+      border-radius: 20px;
+      color: white;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    
+    .social-link:hover {
+      transform: translateY(-2px);
+    }
+    
+    .telegram { background-color: #0088cc; }
+    .facebook { background-color: #3b5998; }
+    .youtube { background-color: #ff0000; }
+    
+    .image-slider {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding: 10px 0;
+      margin-top: 15px;
+    }
+    
+    .image-slider img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .image-slider img:hover {
+      transform: scale(1.05);
+    }
+    
+    .university-structure {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .university-course {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .university-course h4 {
+      color: #1e40af;
+      margin-bottom: 10px;
+    }
+    
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-top: 15px;
+      border-radius: 8px;
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <!-- Header with Curved Navbar -->
+  <div class="navbar-container">
+    <header class="navbar-curved sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+          <a href="index.html" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-amber-500 fun-font">
+            kidsinspiring
+          </a>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+          <a href="programs.html" class="nav-link text-blue-600 font-medium">Programs</a>
+          <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+          <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+          <a href="shop.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Shop</a>
+        </div>
+        
+        <a href="donate.html" class="hidden md:block btn-primary text-white px-6 py-2 rounded-full font-medium pulse">
+          Donate Now
+        </a>
+        
+        <button class="md:hidden text-gray-700 focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="gradient-bg text-white py-16 relative" style="margin-top: -1px;">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 fun-font" data-aos="fade-up">Our Programs</h1>
+      <p class="text-xl max-w-2xl mx-auto mb-8 text-blue-100" data-aos="fade-up" data-aos-delay="100">
+        Transforming children into nation builders through powerful, spirit-filled programs
+      </p>
+      <div class="flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="200">
+        <a href="#devotional" class="btn-secondary px-6 py-3 rounded-full font-medium fun-font">
+          Explore Programs
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-white clip-path-wave"></div>
+    <style>
+      .clip-path-wave {
+        clip-path: ellipse(100% 100% at 50% 100%);
+      }
+    </style>
+  </section>
+
+  <!-- Programs Grid -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <!-- Daily Devotional -->
+      <div id="devotional" class="program-card bg-white shadow-md rounded-xl overflow-hidden mb-16" data-aos="fade-up">
+        <div class="md:flex">
+          <div class="md:w-1/3 bg-blue-50 p-8 flex items-center justify-center">
+            <div class="text-center">
+              <div class="bg-blue-100 text-blue-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 icon-bounce">
+                <i class="fas fa-book-bible text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-blue-600 mb-2 fun-font">Daily Devotional</h3>
+              <p class="text-blue-500">Every Day • 7:45 PM</p>
+            </div>
+          </div>
+          <div class="md:w-2/3 p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">KidsInspiring Nation Daily Devotional</h2>
+            <p class="text-gray-700 mb-6">
+              A daily time to read, discuss, pray and memorise God's WORD. Our devotional program helps children develop a consistent habit of spending time with God each morning, building their spiritual foundation.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <div class="bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-clock mr-2"></i> 1 hour 30 minutes daily
+              </div>
+              <div class="bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-users mr-2"></i> Ages 5-15
+              </div>
+              <div class="bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-bible mr-2"></i> Scripture focus
+              </div>
+            </div>
+            
+            <button class="toggle-button" onclick="toggleExpandable('devotional-content')">
+              Learn More About This Program
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            
+            <div id="devotional-content" class="expandable-content">
+              <div class="expandable-content-inner">
+                <h4 class="font-bold text-gray-800 mb-3">How It Started</h4>
+                <p class="text-gray-700 mb-4">
+                  The Daily Devotional program was born out of a vision to help children establish a daily habit of connecting with God. In 2018, our founder noticed that many children lacked structured spiritual guidance outside of Sunday services. What began as a small WhatsApp group with 10 children has now grown into a global community with thousands of participants across multiple platforms.
+                </p>
+                
+                <h4 class="font-bold text-gray-800 mb-3">Join Us Live</h4>
+                <p class="text-gray-700 mb-4">
+                  Our devotional is streamed live every day at 7:45 PM across these platforms:
+                </p>
+                
+                <div class="social-links">
+                  <a href="https://t.me/kidsinspiring" class="social-link telegram">
+                    <i class="fab fa-telegram mr-2"></i> Telegram
+                  </a>
+                  <a href="https://web.facebook.com/KidsinspiringNation/" class="social-link facebook">
+                    <i class="fab fa-facebook-f mr-2"></i> Facebook
+                  </a>
+                  <a href="https://www.youtube.com/@KidsInspiringNation" class="social-link youtube">
+                    <i class="fab fa-youtube mr-2"></i> YouTube
+                  </a>
+                </div>
+                
+                <div class="video-container">
+                  <iframe src="https://www.youtube.com/embed/nbatYmOYmPY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <p class="text-gray-700 mt-4">
+                  Each session includes scripture reading, interactive discussion, prayer time, and memory verse challenges. Children from different time zones can also access recorded sessions if they can't join live.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- goDsCell -->
+      <div id="godscell" class="program-card bg-white shadow-md rounded-xl overflow-hidden mb-16" data-aos="fade-up">
+        <div class="md:flex flex-row-reverse">
+          <div class="md:w-1/3 bg-amber-50 p-8 flex items-center justify-center">
+            <div class="text-center">
+              <div class="bg-amber-100 text-amber-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 icon-bounce">
+                <i class="fas fa-church text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-amber-600 mb-2 fun-font">goDsCell</h3>
+              <p class="text-amber-500">Weekly • Sundays</p>
+            </div>
+          </div>
+          <div class="md:w-2/3 p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">KidsInspiring Nation goDsCell</h2>
+            <p class="text-gray-700 mb-6">
+              A weekly program to help children inculcate the tenets of Scripture as they learn, love & live the Word of God. Our goDsCell meetings create a community where children grow together in faith.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <div class="bg-amber-50 text-amber-600 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-clock mr-2"></i> 2 hours weekly
+              </div>
+              <div class="bg-amber-50 text-amber-600 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-users mr-2"></i> Small groups
+              </div>
+              <div class="bg-amber-50 text-amber-600 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-hands-praying mr-2"></i> Prayer & discussion
+              </div>
+            </div>
+            
+            <button class="toggle-button" onclick="toggleExpandable('godscell-content')">
+              Learn More About goDsCell
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            
+            <div id="godscell-content" class="expandable-content">
+              <div class="expandable-content-inner">
+                <h4 class="font-bold text-gray-800 mb-3">Our Beginnings</h4>
+                <p class="text-gray-700 mb-4">
+                  The goDsCell concept was inspired by the early church model in Acts 2:42-47. In 2019, we started with just 5 children meeting in a living room, sharing scriptures and praying together. Today, we have hundreds of goDsCells meeting across the nation, each led by trained child-leaders with adult mentors.
+                </p>
+                
+                <h4 class="font-bold text-gray-800 mb-3">What Happens in a goDsCell?</h4>
+                <p class="text-gray-700 mb-4">
+                  Each goDsCell meeting follows this structure:
+                </p>
+                <ul class="list-disc pl-5 text-gray-700 mb-4 space-y-2">
+                  <li><strong>Welcome & Icebreaker</strong> (15 mins) - Fun activities to build relationships</li>
+                  <li><strong>Word Time</strong> (45 mins) - Interactive Bible study led by children</li>
+                  <li><strong>Prayer & Ministry</strong> (30 mins) - Children pray for each other and their communities</li>
+                  <li><strong>Action Challenge</strong> (30 mins) - Practical application of the week's lesson</li>
+                </ul>
+                
+                <h4 class="font-bold text-gray-800 mb-3">Gallery</h4>
+                <p class="text-gray-700 mb-4">
+                  See glimpses of our goDsCells in action:
+                </p>
+                
+                <div class="image-slider">
+                  <img src="images/GD1.jpg" alt="Children praying">
+                  <img src="images/GD2.jpg" alt="Bible study">
+                  <img src="images/GD3.jpg" alt="Group activity">
+                  <img src="images/GD4.jpg" alt="Children worshipping">
+                </div>
+                
+                <p class="text-gray-700 mt-4">
+                  Our goDsCells are more than just meetings - they're spiritual families where children find acceptance, grow in faith, and discover their purpose in God.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Psalm 119 Challenge -->
+      <div id="psalm119" class="program-card bg-white shadow-md rounded-xl overflow-hidden mb-16" data-aos="fade-up">
+        <div class="md:flex">
+          <div class="md:w-1/3 bg-green-50 p-8 flex items-center justify-center">
+            <div class="text-center">
+              <div class="bg-green-100 text-green-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 icon-bounce">
+                <i class="fas fa-trophy text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-green-600 mb-2 fun-font">Psalm 119 Challenge</h3>
+              <p class="text-green-500">National Competition</p>
+            </div>
+          </div>
+          <div class="md:w-2/3 p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">The Psalm 119 National Values Challenge</h2>
+            <p class="text-gray-700 mb-6">
+              A global challenge to reach schools and help children take up the Ps 119 challenge and commit to memorise all 176 verses of Psalm 119. This program instills discipline and love for God's Word while offering educational scholarships.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://psalm119.ng" target="_blank" class="btn-accent px-6 py-2 rounded-full font-medium">
+                Visit Psalm119.ng <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+              <div class="bg-green-50 text-green-600 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-award mr-2"></i> ₦1,191,760 in scholarships
+              </div>
+              <div class="bg-green-50 text-green-600 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-school mr-2"></i> Schools nationwide
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Bible Challenge -->
+      <div id="bible-challenge" class="program-card bg-white shadow-md rounded-xl overflow-hidden mb-16" data-aos="fade-up">
+        <div class="md:flex flex-row-reverse">
+          <div class="md:w-1/3 bg-purple-50 p-8 flex items-center justify-center">
+            <div class="text-center">
+              <div class="bg-purple-100 text-purple-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 icon-bounce">
+                <i class="fas fa-bible text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-purple-600 mb-2 fun-font">goDs University</h3>
+              <p class="text-purple-500">2-Year Program</p>
+            </div>
+          </div>
+          <div class="md:w-2/3 p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">The goDs University</h2>
+            <p class="text-gray-700 mb-6">
+              A call to get children to finish the bible from Genesis to Revelation, with study notes. This comprehensive program helps children understand the full narrative of Scripture and apply it to their lives.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <div class="bg-purple-50 text-purple-600 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-book-open mr-2"></i> 1189 chapters
+              </div>
+              <div class="bg-purple-50 text-purple-600 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-calendar mr-2"></i> 2-year journey
+              </div>
+              <div class="bg-purple-50 text-purple-600 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-sticky-note mr-2"></i> Study notes included
+              </div>
+            </div>
+            
+            <button class="toggle-button" onclick="toggleExpandable('bible-challenge-content')">
+              Explore The goDs University
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            
+            <div id="bible-challenge-content" class="expandable-content">
+              <div class="expandable-content-inner">
+                <h4 class="font-bold text-gray-800 mb-3">The goDs University Concept</h4>
+                <p class="text-gray-700 mb-4">
+                  The Bible Challenge was launched in 2020 as a spiritual "university" where children systematically study through the entire Bible. Just like a university has different faculties and courses, our Bible University is structured to give children a comprehensive theological education.
+                </p>
+                
+                <h4 class="font-bold text-gray-800 mb-3">University Structure</h4>
+                <div class="university-structure">
+                  <div class="university-course">
+                    <h4 class="font-bold">Year 1: Foundation Courses</h4>
+                    <ul class="list-disc pl-5 text-gray-700 mt-2 space-y-1">
+                      <li>Pentateuch Studies (Genesis-Deuteronomy)</li>
+                      <li>Historical Books Survey</li>
+                      <li>Wisdom Literature</li>
+                      <li>Major Prophets</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="university-course">
+                    <h4 class="font-bold">Year 1: Core Courses</h4>
+                    <ul class="list-disc pl-5 text-gray-700 mt-2 space-y-1">
+                      <li>Minor Prophets</li>
+                      <li>Gospels & Acts</li>
+                      <li>Pauline Epistles</li>
+                      <li>General Epistles</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="university-course">
+                    <h4 class="font-bold">Year 2: Specializations</h4>
+                    <ul class="list-disc pl-5 text-gray-700 mt-2 space-y-1">
+                      <li>Biblical Theology</li>
+                      <li>Apologetics</li>
+                      <li>Biblical Leadership</li>
+                      <li>Missions & Evangelism</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="university-course">
+                    <h4 class="font-bold">Year 2: Practical Ministry</h4>
+                    <ul class="list-disc pl-5 text-gray-700 mt-2 space-y-1">
+                      <li>Teaching Practicum</li>
+                      <li>Discipleship Training</li>
+                      <li>Worship Ministry</li>
+                      <li>Community Outreach</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <h4 class="font-bold text-gray-800 mt-6 mb-3">Graduation Requirements</h4>
+                <p class="text-gray-700 mb-4">
+                  To graduate from the Bible University, children must:
+                </p>
+                <ul class="list-disc pl-5 text-gray-700 mb-4 space-y-2">
+                  <li>Complete reading the entire Bible with study notes</li>
+                  <li>Memorize 100 key scriptures</li>
+                  <li>Teach at least 5 Bible lessons to peers</li>
+                  <li>Complete a practical ministry project</li>
+                  <li>Write a personal statement of faith</li>
+                </ul>
+                
+                <p class="text-gray-700">
+                  Graduates receive a special certificate and are eligible to become junior Bible teachers in our programs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- goDs University Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 fun-font">goDs University</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Our Five Staged model as given by the Holy Spirit is a system to produce a god like Daniel of any child, in any nation, at a given stage of life.
+        </p>
+        <div class="w-20 h-1 bg-blue-500 mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <!-- Level 1 -->
+        <div class="level-card bg-white p-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-blue-100 text-blue-800 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-4">1</div>
+          <h3 class="font-bold text-gray-800 mb-2">Level 1 - Selection</h3>
+          <p class="text-gray-700 text-sm">
+            Ps. 119 Challenge - memorise & recite all 176 verses of the longest chapter in God's WORD.
+          </p>
+        </div>
+        
+        <!-- Level 2 -->
+        <div class="level-card bg-white p-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-blue-100 text-blue-800 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-4">2</div>
+          <h3 class="font-bold text-gray-800 mb-2">Level 2 - Spirit</h3>
+          <p class="text-gray-700 text-sm">
+            The Bible Challenge - read & study all 1189 chapters of the bible.
+          </p>
+        </div>
+        
+        <!-- Level 3 -->
+        <div class="level-card bg-white p-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="bg-blue-100 text-blue-800 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-4">3</div>
+          <h3 class="font-bold text-gray-800 mb-2">Level 3 - Skills</h3>
+          <p class="text-gray-700 text-sm">
+            The Biography Challenge - learn the stories of 100 unique men/women who have impacted the world.
+          </p>
+        </div>
+        
+        <!-- Level 4 -->
+        <div class="level-card bg-white p-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="bg-blue-100 text-blue-800 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-4">4</div>
+          <h3 class="font-bold text-gray-800 mb-2">Level 4 - Service</h3>
+          <p class="text-gray-700 text-sm">
+            The 10,000 impact challenge - invest 10,000 hours using skills to serve the next generation.
+          </p>
+        </div>
+        
+        <!-- Level 5 -->
+        <div class="level-card bg-white p-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="bg-blue-100 text-blue-800 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-4">5</div>
+          <h3 class="font-bold text-gray-800 mb-2">Level 5 - Signs</h3>
+          <p class="text-gray-700 text-sm">
+            The Daniel challenge - solve the most challenging problems in their fields and nations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Jesus Christ Concert Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 fun-font">The Jesus Christ Concert</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          A yearly event to mark the birth of Christ by giving children an opportunity to see Jesus Christ as the only reason.
+        </p>
+        <div class="w-20 h-1 bg-blue-500 mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Concert 2022 -->
+        <div class="video-thumbnail relative" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+               alt="Jesus Christ Concert 2022" 
+               class="w-full h-48 object-cover">
+          <div class="play-button">
+            <i class="fas fa-play text-blue-500 text-xl"></i>
+          </div>
+          <div class="p-4 bg-white">
+            <h4 class="font-bold text-gray-800">TJC 2022</h4>
+            <p class="text-gray-600 text-sm">7th Annual Concert</p>
+          </div>
+        </div>
+        
+        <!-- Concert 2021 -->
+        <div class="video-thumbnail relative" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+               alt="Jesus Christ Concert 2021" 
+               class="w-full h-48 object-cover">
+          <div class="play-button">
+            <i class="fas fa-play text-blue-500 text-xl"></i>
+          </div>
+          <div class="p-4 bg-white">
+            <h4 class="font-bold text-gray-800">TJC 2021</h4>
+            <p class="text-gray-600 text-sm">6th Annual Concert</p>
+          </div>
+        </div>
+        
+        <!-- Concert 2020 -->
+        <div class="video-thumbnail relative" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+               alt="Jesus Christ Concert 2020" 
+               class="w-full h-48 object-cover">
+          <div class="play-button">
+            <i class="fas fa-play text-blue-500 text-xl"></i>
+          </div>
+          <div class="p-4 bg-white">
+            <h4 class="font-bold text-gray-800">TJC 2020</h4>
+            <p class="text-gray-600 text-sm">5th Annual Concert</p>
+          </div>
+        </div>
+        
+        <!-- Concert 2019 -->
+        <div class="video-thumbnail relative" data-aos="fade-up" data-aos-delay="400">
+          <img src="https://images.unsplash.com/photo-1468164016595-6108e4c60c8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+               alt="Jesus Christ Concert 2019" 
+               class="w-full h-48 object-cover">
+          <div class="play-button">
+            <i class="fas fa-play text-blue-500 text-xl"></i>
+          </div>
+          <div class="p-4 bg-white">
+            <h4 class="font-bold text-gray-800">TJC 2019</h4>
+            <p class="text-gray-600 text-sm">4th Annual Concert</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-8" data-aos="fade-up">
+        <a href="#" class="btn-primary text-white px-6 py-3 rounded-full font-medium fun-font">
+          View All Concerts
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- goDs Experience Section -->
+  <section class="py-16 gradient-bg text-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+          <h2 class="text-3xl font-bold mb-6 fun-font">goDx Experience</h2>
+          <p class="text-xl mb-8 text-blue-100">
+            A church by goDs, led by goDs. Our unique worship experience is completely child-led, allowing our god-children to express their faith through worship, prayer, and ministry.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="btn-secondary px-6 py-3 rounded-full font-medium fun-font">
+              Learn More
+            </a>
+            <a href="#" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition fun-font">
+              Join Sunday Service
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+          <img src="images/GE.jpg" 
+               alt="Children worshipping" 
+               class="rounded-lg shadow-xl floating max-w-md w-full h-auto border-4 border-amber-300">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 fun-font">Ready to Join Our Programs?</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mb-8">
+        Whether you're a parent, teacher, or volunteer, there's a place for you in KidsInspiring Nation.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-3 rounded-full font-medium fun-font">
+          Contact Us
+        </a>
+        <a href="donate.html" class="btn-secondary px-6 py-3 rounded-full font-medium fun-font">
+          Support Our Mission
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <a href="index.html" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400 fun-font">
+            kidsinspiring
+          </a>
+          <p class="text-gray-400 mt-2">Raising gods who build nations.</p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center md:justify-end gap-6 mb-6 md:mb-0">
+          <div>
+            <h4 class="font-bold text-gray-100 mb-3 fun-font">Quick Links</h4>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+              <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Programs</a></li>
+              <li><a href="about.html" class="text-gray-400 hover:text-white transition">About</a></li>
+              <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold text-gray-100 mb-3 fun-font">Programs</h4>
+            <ul class="space-y-2">
+              <li><a href="#devotional" class="text-gray-400 hover:text-white transition">Daily Devotional</a></li>
+              <li><a href="#godscell" class="text-gray-400 hover:text-white transition">goDsCell</a></li>
+              <li><a href="#psalm119" class="text-gray-400 hover:text-white transition">Psalm 119 Challenge</a></li>
+              <li><a href="#bible-challenge" class="text-gray-400 hover:text-white transition">Bible Challenge</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 mb-4 md:mb-0">© 2023 KidsInspiring Nation. All rights reserved.</p>
+        
+        <div class="flex space-x-6">
+          <a href="https://web.facebook.com/KidsinspiringNation/" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://x.com/kidsinspiringN?t=dUiNjp7mpY6bdeWpsIxMSw&s=09" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/kidsinspiringnation/" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/@KidsInspiringNation" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+     // Initialize AOS animations
+     AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+    
+    // Toggle expandable content
+    function toggleExpandable(id) {
+      const content = document.getElementById(id);
+      const button = content.previousElementSibling;
+      
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        button.classList.remove('active');
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        button.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>

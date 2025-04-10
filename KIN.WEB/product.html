@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Same head content as shop.html -->
+  <title>Inspiring Hoodie - KidsInspiring Nation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet"/>
+  <style>
+    /* Your existing styles from programs.html */
+    :root {
+      --primary: #3b82f6;
+      --secondary: #f59e0b;
+      --accent: #10b981;
+      --dark: #1a202c;
+      --light: #f7fafc;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f8fafc;
+    }
+    
+    .fun-font {
+      font-family: 'Fredoka One', cursive;
+    }
+    
+    /* Shop-specific styles */
+    .product-card {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--secondary);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    
+    .price {
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .old-price {
+      text-decoration: line-through;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    
+    .add-to-cart {
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .add-to-cart:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+    
+    .category-btn {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      border-radius: 8px;
+      padding: 6px 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .category-btn.active, .category-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--secondary);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+    .thumbnail {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .thumbnail:hover, .thumbnail.active {
+      border-color: #3b82f6;
+    }
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .color-option:hover, .color-option.active {
+      border-color: #1e40af;
+    }
+    .size-option {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+    .size-option:hover, .size-option.active {
+      background-color: #3b82f6;
+      color: white;
+      border-color: #3b82f6;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <!-- Same header as shop.html -->
+
+  <!-- Product Hero -->
+  <section class="bg-white py-6 border-b">
+    <div class="container mx-auto px-4">
+      <div class="text-sm text-gray-600">
+        <a href="shop.html" class="text-blue-600 hover:underline">Shop</a> / 
+        <a href="shop.html?category=hoodies" class="text-blue-600 hover:underline">Hoodies</a> / 
+        <span>Inspiring Hoodie</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Detail -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row gap-12">
+        <!-- Product Images -->
+        <div class="lg:w-1/2">
+          <div class="mb-4 rounded-lg overflow-hidden">
+            <img id="main-image" src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1372&q=80" 
+                 alt="Inspiring Hoodie" 
+                 class="w-full h-auto object-cover rounded-lg">
+          </div>
+          <div class="grid grid-cols-4 gap-3">
+            <div class="thumbnail active" onclick="changeImage('https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1372&q=80')">
+              <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1372&q=80" 
+                   alt="Inspiring Hoodie" 
+                   class="w-full h-20 object-cover rounded">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1620799139834-6b8f844802e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1372&q=80')">
+              <img src="https://images.unsplash.com/photo-1620799139834-6b8f844802e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1372&q=80" 
+                   alt="Inspiring Hoodie Back" 
+                   class="w-full h-20 object-cover rounded">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1620799139652-7e0ef518d0a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1372&q=80')">
+              <img src="https://images.unsplash.com/photo-1620799139652-7e0ef518d0a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1372&q=80" 
+                   alt="Inspiring Hoodie Detail" 
+                   class="w-full h-20 object-cover rounded">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1372&q=80')">
+              <img src="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1372&q=80" 
+                   alt="Inspiring Hoodie Package" 
+                   class="w-full h-20 object-cover rounded">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product Info -->
+        <div class="lg:w-1/2">
+          <h1 class="text-3xl font-bold text-gray-800 mb-2">Inspiring Hoodie</h1>
+          <div class="flex items-center mb-4">
+            <div class="flex text-amber-400 mr-3">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="text-gray-600 text-sm">24 reviews</span>
+          </div>
+          
+          <div class="mb-6">
+            <span class="price text-2xl">₦12,500</span>
+            <span class="old-price ml-2">₦15,000</span>
+            <span class="bg-red-100 text-red-800 text-sm font-medium ml-3 px-2 py-1 rounded">17% OFF</span>
+          </div>
+          
+          <p class="text-gray-700 mb-6">
+            Our premium Inspiring Hoodie features a comfortable fit with faith-inspired designs. Perfect for everyday wear while spreading God's word. Made from high-quality cotton blend for durability and comfort.
+          </p>
+          
+          <!-- Color Options -->
+          <div class="mb-6">
+            <h3 class="font-bold text-gray-800 mb-3">Color: <span id="selected-color">Navy Blue</span></h3>
+            <div class="flex space-x-3">
+              <div class="color-option active bg-blue-900" 
+                   data-color="Navy Blue" 
+                   onclick="selectColor('Navy Blue', this)"></div>
+              <div class="color-option bg-black" 
+                   data-color="Black" 
+                   onclick="selectColor('Black', this)"></div>
+              <div class="color-option bg-gray-600" 
+                   data-color="Gray" 
+                   onclick="selectColor('Gray', this)"></div>
+              <div class="color-option bg-red-800" 
+                   data-color="Burgundy" 
+                   onclick="selectColor('Burgundy', this)"></div>
+            </div>
+          </div>
+          
+          <!-- Size Options -->
+          <div class="mb-6">
+            <h3 class="font-bold text-gray-800 mb-3">Size: <span id="selected-size">M</span></h3>
+            <div>
+              <span class="size-option" onclick="selectSize('XS', this)">XS</span>
+              <span class="size-option" onclick="selectSize('S', this)">S</span>
+              <span class="size-option active" onclick="selectSize('M', this)">M</span>
+              <span class="size-option" onclick="selectSize('L', this)">L</span>
+              <span class="size-option" onclick="selectSize('XL', this)">XL</span>
+            </div>
+          </div>
+          
+          <!-- Quantity -->
+          <div class="mb-8">
+            <h3 class="font-bold text-gray-800 mb-3">Quantity</h3>
+            <div class="flex items-center">
+              <button class="quantity-btn rounded-l">-</button>
+              <input type="text" value="1" class="quantity-input h-12">
+              <button class="quantity-btn rounded-r">+</button>
+            </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button class="btn-primary text-white px-8 py-3 rounded-lg font-medium fun-font flex-grow">
+              <i class="fas fa-cart-plus mr-2"></i> Add to Cart
+            </button>
+            <button class="btn-secondary px-8 py-3 rounded-lg font-medium fun-font flex-grow">
+              Buy Now
+            </button>
+          </div>
+          
+          <!-- Product Details -->
+          <div class="mt-12 border-t pt-6">
+            <h3 class="font-bold text-gray-800 mb-4">Product Details</h3>
+            <ul class="list-disc pl-5 text-gray-700 space-y-2">
+              <li>80% Cotton, 20% Polyester</li>
+              <li>Machine wash cold, tumble dry low</li>
+              <li>Kangaroo pocket</li>
+              <li>Adjustable drawstring hood</li>
+              <li>Faith-inspired design printed on front and back</li>
+              <li>Available in multiple colors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold text-center mb-8 fun-font">Customer Reviews</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <!-- Review 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Amina K." class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Amina K.</h4>
+              <div class="flex text-amber-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-2">"The hoodie is so comfortable and the quality is excellent. The design is beautiful and I've received many compliments. Definitely worth the price!"</p>
+          <p class="text-gray-400 text-sm">Posted on March 15, 2023</p>
+        </div>
+        
+        <!-- Review 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Emeka O." class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Emeka O.</h4>
+              <div class="flex text-amber-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-2">"Bought this for my son and he loves it. The sizing was perfect and it has held up well after several washes. Will be ordering another one soon!"</p>
+          <p class="text-gray-400 text-sm">Posted on February 28, 2023</p>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <a href="#" class="text-blue-600 font-medium hover:underline">View all 24 reviews</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold text-center mb-8 fun-font">You May Also Like</h2>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- Related Product 1 -->
+        <div class="product-card">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                 alt="Prayer Warrior Hoodie" 
+                 class="w-full h-48 object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800 mb-1">Prayer Warrior Hoodie</h3>
+            <p class="text-gray-600 text-sm mb-2">Unisex faith-inspired hoodie</p>
+            <div class="flex justify-between items-center mt-3">
+              <div>
+                <span class="price">₦13,800</span>
+              </div>
+              <button class="add-to-cart" data-id="9">
+                <i class="fas fa-cart-plus mr-1"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Related Product 2 -->
+        <div class="product-card">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Faith Cap" 
+                 class="w-full h-48 object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800 mb-1">Faith Cap</h3>
+            <p class="text-gray-600 text-sm mb-2">Biblical designs for everyday wear</p>
+            <div class="flex justify-between items-center mt-3">
+              <div>
+                <span class="price">₦6,500</span>
+              </div>
+              <button class="add-to-cart" data-id="10">
+                <i class="fas fa-cart-plus mr-1"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Related Product 3 -->
+        <div class="product-card">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1604671801198-5a29b5f6c0f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                 alt="Psalm Wristband" 
+                 class="w-full h-48 object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800 mb-1">Psalm Wristband</h3>
+            <p class="text-gray-600 text-sm mb-2">Pack of 3 faith-inspired wristbands</p>
+            <div class="flex justify-between items-center mt-3">
+              <div>
+                <span class="price">₦3,000</span>
+              </div>
+              <button class="add-to-cart" data-id="11">
+                <i class="fas fa-cart-plus mr-1"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Related Product 4 -->
+        <div class="product-card">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                 alt="Children's Devotional" 
+                 class="w-full h-48 object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800 mb-1">Children's Devotional</h3>
+            <p class="text-gray-600 text-sm mb-2">365-day devotional for young believers</p>
+            <div class="flex justify-between items-center mt-3">
+              <div>
+                <span class="price">₦5,500</span>
+              </div>
+              <button class="add-to-cart" data-id="12">
+                <i class="fas fa-cart-plus mr-1"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Same footer as shop.html -->
+
+  <script>
+    // Change main product image
+    function changeImage(src) {
+      document.getElementById('main-image').src = src;
+      document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.classList.remove('active');
+      });
+      event.currentTarget.classList.add('active');
+    }
+    
+    // Select color option
+    function selectColor(color, element) {
+      document.getElementById('selected-color').textContent = color;
+      document.querySelectorAll('.color-option').forEach(opt => {
+        opt.classList.remove('active');
+      });
+      element.classList.add('active');
+    }
+    
+    // Select size option
+    function selectSize(size, element) {
+      document.getElementById('selected-size').textContent = size;
+      document.querySelectorAll('.size-option').forEach(opt => {
+        opt.classList.remove('active');
+      });
+      element.classList.add('active');
+    }
+    
+    // Quantity adjustment
+    document.querySelectorAll('.quantity-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const input = this.parentElement.querySelector('.quantity-input');
+        let value = parseInt(input.value);
+        
+        if (this.textContent === '+' && value < 10) {
+          input.value = value + 1;
+        } else if (this.textContent === '-' && value > 1) {
+          input.value = value - 1;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

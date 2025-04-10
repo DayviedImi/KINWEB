@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Shop - KidsInspiring Nation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet"/>
+  <style>
+    /* Your existing styles from programs.html */
+    :root {
+      --primary: #3b82f6;
+      --secondary: #f59e0b;
+      --accent: #10b981;
+      --dark: #1a202c;
+      --light: #f7fafc;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f8fafc;
+    }
+    
+    .fun-font {
+      font-family: 'Fredoka One', cursive;
+    }
+    
+    /* Shop-specific styles */
+    .product-card {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--secondary);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    
+    .price {
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .old-price {
+      text-decoration: line-through;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    
+    .add-to-cart {
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .add-to-cart:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+    
+    .category-btn {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      border-radius: 8px;
+      padding: 6px 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .category-btn.active, .category-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--secondary);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <!-- Header with Curved Navbar (same as programs.html) -->
+  <div class="navbar-container">
+    <header class="navbar-curved sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+          <a href="index.html" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-amber-500 fun-font">
+            kidsinspiring
+          </a>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+          <a href="programs.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Programs</a>
+          <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+          <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+          <a href="shop.html" class="nav-link text-blue-600 font-medium">Shop</a>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+          <a href="cart.html" class="relative">
+            <i class="fas fa-shopping-cart text-gray-700 text-xl"></i>
+            <span class="cart-count">0</span>
+          </a>
+          <a href="donate.html" class="hidden md:block btn-primary text-white px-6 py-2 rounded-full font-medium pulse">
+            Donate Now
+          </a>
+        </div>
+        
+        <button class="md:hidden text-gray-700 focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <!-- Shop Hero Section -->
+  <section class="gradient-bg text-white py-16 relative">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 fun-font">KidsInspiring Shop</h1>
+      <p class="text-xl max-w-2xl mx-auto mb-8 text-blue-100">
+        Wear your faith with pride! Support our mission with every purchase.
+      </p>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-white clip-path-wave"></div>
+  </section>
+
+  <!-- Shop Content -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <!-- Categories -->
+      <div class="flex flex-wrap gap-3 mb-8 justify-center">
+        <button class="category-btn active" data-category="all">All Items</button>
+        <button class="category-btn" data-category="hoodies">Hoodies</button>
+        <button class="category-btn" data-category="caps">Caps</button>
+        <button class="category-btn" data-category="bands">Wristbands</button>
+        <button class="category-btn" data-category="books">Books</button>
+      </div>
+      
+      <!-- Products Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+  <!-- Product 1 - Inspiring Hoodie -->
+<div class="product-card" data-category="hoodies">
+  <a href="product-inspiring-hoodie.html" class="block">
+    <div class="relative">
+      <img src="images/hoodie.png" class="w-full h-64 object-cover">
+      <span class="product-badge">New</span>
+    </div>
+    <div class="p-4">
+      <h3 class="font-bold text-gray-800 mb-1">Inspiring Hoodie</h3>
+      <p class="text-gray-600 text-sm mb-2">Stay warm while spreading God's word</p>
+    </div>
+  </a>
+  <div class="px-4 pb-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <span class="price">₦12,500</span>
+        <span class="old-price ml-2">₦15,000</span>
+      </div>
+      <button class="add-to-cart" data-id="1">
+        <i class="fas fa-cart-plus mr-1"></i> Add
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Product 2 - Psalm 119 Cap -->
+<div class="product-card" data-category="caps">
+  <a href="product-psalm119-cap.html" class="block">
+    <div class="relative">
+      <img src="images/cap2.jpg" class="w-full h-64 object-cover">
+    </div>
+    <div class="p-4">
+      <h3 class="font-bold text-gray-800 mb-1">Psalm 119 Cap</h3>
+      <p class="text-gray-600 text-sm mb-2">Psalm designs for everyday wear</p>
+    </div>
+  </a>
+  <div class="px-4 pb-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <span class="price">₦6,500</span>
+      </div>
+      <button class="add-to-cart" data-id="2">
+        <i class="fas fa-cart-plus mr-1"></i> Add
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Product 3 - Psalm Wristband -->
+<div class="product-card" data-category="bands">
+  <a href="product-psalm-wristband.html" class="block">
+    <div class="relative">
+      <img src="images/band.jpg" alt="Psalm Wristband" class="w-full h-64 object-cover">
+      <span class="product-badge">Bestseller</span>
+    </div>
+    <div class="p-4">
+      <h3 class="font-bold text-gray-800 mb-1">Psalm Wristband</h3>
+      <p class="text-gray-600 text-sm mb-2">Pack of 3 faith-inspired wristbands</p>
+    </div>
+  </a>
+  <div class="px-4 pb-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <span class="price">₦3,000</span>
+      </div>
+      <button class="add-to-cart" data-id="3">
+        <i class="fas fa-cart-plus mr-1"></i> Add
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Product 4 - Daniel Fast Shirt -->
+<div class="product-card" data-category="hoodies">
+  <a href="product-danielfast-shirt.html" class="block">
+    <div class="relative">
+      <img src="images/dan.jpg" alt="Daniel Fast Shirt" class="w-full h-64 object-cover">
+    </div>
+    <div class="p-4">
+      <h3 class="font-bold text-gray-800 mb-1">Daniel Fast Shirt</h3>
+      <p class="text-gray-600 text-sm mb-2">Unisex Shirt with inspiring message</p>
+    </div>
+  </a>
+  <div class="px-4 pb-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <span class="price">₦13,800</span>
+      </div>
+      <button class="add-to-cart" data-id="4">
+        <i class="fas fa-cart-plus mr-1"></i> Add
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Product 5 - Daniel Fast Cap -->
+<div class="product-card" data-category="caps">
+  <a href="product-danielfast-cap.html" class="block">
+    <div class="relative">
+      <img src="images/cap.jpg" class="w-full h-64 object-cover">
+    </div>
+    <div class="p-4">
+      <h3 class="font-bold text-gray-800 mb-1">Daniel Fast Cap</h3>
+      <p class="text-gray-600 text-sm mb-2">Adjustable cap with scripture</p>
+    </div>
+  </a>
+  <div class="px-4 pb-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <span class="price">₦7,200</span>
+        <span class="old-price ml-2">₦8,500</span>
+      </div>
+      <button class="add-to-cart" data-id="5">
+        <i class="fas fa-cart-plus mr-1"></i> Add
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Product 6 - Salvation Shirt -->
+<div class="product-card" data-category="books">
+  <a href="production-salvation-shirt.html" class="block">
+    <div class="relative">
+      <img src="images/sal4.jpg" alt="Salvation Shirt" class="w-full h-64 object-cover">
+      <span class="product-badge">New</span>
+    </div>
+    <div class="p-4">
+      <h3 class="font-bold text-gray-800 mb-1">Salvation Shirt</h3>
+      <p class="text-gray-600 text-sm mb-2">Salvation Shirts for young believers</p>
+    </div>
+  </a>
+  <div class="px-4 pb-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <span class="price">₦12,500</span>
+      </div>
+      <button class="add-to-cart" data-id="6">
+        <i class="fas fa-cart-plus mr-1"></i> Add
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Product 7 - Psalm 119 Tote Bag -->
+<div class="product-card" data-category="bands">
+  <a href="product-psalm119-bag.html" class="block">
+    <div class="relative">
+      <img src="images/tote bag.png" alt="Psalm 119 Tote Bag" class="w-full h-64 object-cover">
+    </div>
+    <div class="p-4">
+      <h3 class="font-bold text-gray-800 mb-1">Psalm 119 Tote Bag</h3>
+      <p class="text-gray-600 text-sm mb-2">Psalm 119 Colourful Tote Bag</p>
+    </div>
+  </a>
+  <div class="px-4 pb-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <span class="price">₦5,000</span>
+      </div>
+      <button class="add-to-cart" data-id="7">
+        <i class="fas fa-cart-plus mr-1"></i> Add
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Product 8 - Water Bottle for Kids -->
+<div class="product-card" data-category="books">
+  <a href="product-bottle.html" class="block">
+    <div class="relative">
+      <img src="images/bottle.jpg" class="w-full h-64 object-cover">
+    </div>
+    <div class="p-4">
+      <h3 class="font-bold text-gray-800 mb-1">Water Bottle for Kids</h3>
+      <p class="text-gray-600 text-sm mb-2">Illustrated children's Bottle</p>
+    </div>
+  </a>
+  <div class="px-4 pb-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <span class="price">₦3,000</span>
+        <span class="old-price ml-2">₦4,500</span>
+      </div>
+      <button class="add-to-cart" data-id="8">
+        <i class="fas fa-cart-plus mr-1"></i> Add
+      </button>
+    </div>
+  </div>
+</div>
+      
+      <!-- Pagination -->
+      <div class="flex justify-center mt-12">
+        <nav class="flex items-center space-x-2">
+          <a href="#" class="px-3 py-1 rounded bg-blue-100 text-blue-600 font-medium">1</a>
+          <a href="#" class="px-3 py-1 rounded hover:bg-blue-50 text-gray-700">2</a>
+          <a href="#" class="px-3 py-1 rounded hover:bg-blue-50 text-gray-700">3</a>
+          <a href="#" class="px-3 py-1 rounded hover:bg-blue-50 text-gray-700">Next <i class="fas fa-chevron-right ml-1"></i></a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 fun-font">What People Are Saying</h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J." class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Sarah J.</h4>
+              <div class="flex text-amber-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600">"The Prayer Warrior Hoodie is my favorite! The quality is amazing and I get compliments everywhere I go. Plus it supports a great cause!"</p>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David O." class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">David O.</h4>
+              <div class="flex text-amber-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600">"My kids love their Bible Story book. The illustrations are beautiful and it makes bedtime stories so meaningful. Will definitely order more items!"</p>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Grace T." class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Grace T.</h4>
+              <div class="flex text-amber-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600">"The wristbands are such a great way to share our faith. I bought sets for all my Sunday School students and they love them!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shipping Info -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="p-6">
+          <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-truck text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-800 mb-2">Fast Shipping</h3>
+          <p class="text-gray-600">Delivery within 3-5 business days across Nigeria</p>
+        </div>
+        
+        <div class="p-6">
+          <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-undo text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-800 mb-2">Easy Returns</h3>
+          <p class="text-gray-600">30-day return policy for unused items</p>
+        </div>
+        
+        <div class="p-6">
+          <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-hand-holding-heart text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-800 mb-2">Support Our Mission</h3>
+          <p class="text-gray-600">All proceeds support KidsInspiring programs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (same as programs.html) -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <a href="index.html" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400 fun-font">
+            kidsinspiring
+          </a>
+          <p class="text-gray-400 mt-2">Raising gods who build nations.</p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center md:justify-end gap-6 mb-6 md:mb-0">
+          <div>
+            <h4 class="font-bold text-gray-100 mb-3 fun-font">Quick Links</h4>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+              <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Programs</a></li>
+              <li><a href="shop.html" class="text-gray-400 hover:text-white transition">Shop</a></li>
+              <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold text-gray-100 mb-3 fun-font">Shop Categories</h4>
+            <ul class="space-y-2">
+              <li><a href="shop.html?category=hoodies" class="text-gray-400 hover:text-white transition">Hoodies</a></li>
+              <li><a href="shop.html?category=caps" class="text-gray-400 hover:text-white transition">Caps</a></li>
+              <li><a href="shop.html?category=bands" class="text-gray-400 hover:text-white transition">Wristbands</a></li>
+              <li><a href="shop.html?category=books" class="text-gray-400 hover:text-white transition">Books</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 mb-4 md:mb-0">© 2025 KidsInspiring Nation. All rights reserved.</p>
+        
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple cart functionality
+    let cartItems = [];
+    
+    // Add to cart buttons
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', function() {
+        const productId = this.getAttribute('data-id');
+        cartItems.push(productId);
+        updateCartCount();
+        
+        // Visual feedback
+        this.innerHTML = '<i class="fas fa-check mr-1"></i> Added';
+        this.style.backgroundColor = '#10b981';
+        setTimeout(() => {
+          this.innerHTML = '<i class="fas fa-cart-plus mr-1"></i> Add';
+          this.style.backgroundColor = '#3b82f6';
+        }, 1000);
+      });
+    });
+    
+    // Update cart count display
+    function updateCartCount() {
+      document.querySelector('.cart-count').textContent = cartItems.length;
+    }
+    
+    // Category filtering
+    document.querySelectorAll('.category-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const category = this.getAttribute('data-category');
+        
+        // Update active button
+        document.querySelectorAll('.category-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        this.classList.add('active');
+        
+        // Filter products
+        document.querySelectorAll('.product-card').forEach(product => {
+          if (category === 'all' || product.getAttribute('data-category') === category) {
+            product.style.display = 'block';
+          } else {
+            product.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>About Us - KidsInspiring Nation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --secondary: #f59e0b;
+      --accent: #10b981;
+      --dark: #1a202c;
+      --light: #f7fafc;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f8fafc;
+    }
+    
+    .fun-font {
+      font-family: 'Fredoka One', cursive;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%);
+    }
+    
+    /* Curved Navbar Styles */
+    .navbar-container {
+      position: relative;
+    }
+    
+    .navbar-curved {
+      background-color: white;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-curved:before,
+    .navbar-curved:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+    }
+    
+    .navbar-curved:before {
+      left: -20px;
+      border-bottom-right-radius: 20px;
+      box-shadow: 10px 0 0 0 white;
+    }
+    
+    .navbar-curved:after {
+      right: -20px;
+      border-bottom-left-radius: 20px;
+      box-shadow: -10px 0 0 0 white;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: var(--dark);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .btn-accent {
+      background-color: var(--accent);
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-accent:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .hover-grow {
+      transition: all 0.3s ease;
+    }
+    
+    .hover-grow:hover {
+      transform: scale(1.02);
+    }
+    
+    .text-gradient {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .value-card {
+      transition: all 0.3s ease;
+      perspective: 1000px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-5px) rotateX(5deg);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary);
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      left: -8px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--secondary);
+      border: 4px solid var(--primary);
+    }
+    
+    .mission-card {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+    }
+    
+    .mission-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .icon-bounce {
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+      40% {transform: translateY(-15px);}
+      60% {transform: translateY(-7px);}
+    }
+    
+    .clip-path-wave {
+      clip-path: ellipse(100% 100% at 50% 100%);
+    }
+    
+    .decade-item {
+      transition: all 0.3s ease;
+    }
+    
+    .decade-item:hover {
+      transform: scale(1.05);
+    }
+    
+    .fade-in {
+      animation: fadeIn 1.5s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <!-- Header with Curved Navbar -->
+  <div class="navbar-container">
+    <header class="navbar-curved sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+          <a href="index.html" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-amber-500 fun-font">
+            kidsinspiring
+          </a>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+          <a href="programs.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Programs</a>
+          <a href="about.html" class="nav-link text-blue-600 font-medium">About</a>
+          <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+          <a href="shop.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Shop</a>
+        </div>
+        
+        <a href="donate.html" class="hidden md:block btn-primary text-white px-6 py-2 rounded-full font-medium pulse">
+          Donate Now
+        </a>
+        
+        <button class="md:hidden text-gray-700 focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="gradient-bg text-white py-16 relative" style="margin-top: -1px;">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 fun-font" data-aos="fade-up">Our Story & Vision</h1>
+      <p class="text-xl max-w-2xl mx-auto mb-8 text-blue-100" data-aos="fade-up" data-aos-delay="100">
+        Raising gods who build nations through spirit, skills, and service
+      </p>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-white clip-path-wave"></div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center">
+        <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8" data-aos="fade-right">
+          <img src="images/AB1.jpg" 
+               alt="Children praying" 
+               class="rounded-lg shadow-xl w-full h-auto border-4 border-amber-300">
+        </div>
+        
+        <div class="lg:w-1/2" data-aos="fade-left">
+          <h2 class="text-3xl font-bold text-gray-800 mb-6 fun-font">Discovering Our Core Values</h2>
+          <p class="text-gray-700 mb-6">
+            KidsInspiring Nation began as a divine revelation - a heart cry for the kingdom and our nation, Nigeria. During a soul-winning drive with Living Faith Church, the Holy Spirit spoke clearly: <span class="italic font-medium text-blue-600">"The soul of a child is as important as the soul of an adult."</span>
+          </p>
+          <p class="text-gray-700 mb-6">
+            What started in 2017 as an after-Sunday school gathering has blossomed into a global movement. We discovered that raising children as gods (John 10:35) requires focusing on three core areas: their <span class="font-bold text-blue-600">Spirit</span> to God, their <span class="font-bold text-amber-600">Skills</span> in themselves, and their <span class="font-bold text-green-600">Service</span> to nations.
+          </p>
+          <p class="text-gray-700">
+            Through years of ministry, these values crystallized into the G.O.D.S. acronym that guides everything we do. Each value represents a non-negotiable pillar in our mission to transform children into nation builders.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 fun-font">Our Core Values</h2>
+        <div class="flex justify-center">
+          <div class="text-4xl font-bold text-gradient fun-font">G.O.D.S</div>
+        </div>
+        <div class="w-20 h-1 bg-blue-500 mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Grit -->
+        <div class="value-card bg-white p-6 shadow-md" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-5xl font-bold text-blue-500 mb-4 fun-font text-center">G</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Grit</h3>
+          <p class="text-gray-700 text-center">
+            Never say Never, the ability to give all it takes.
+          </p>
+          <div class="mt-4 flex justify-center">
+            <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-full flex items-center justify-center icon-bounce">
+              <i class="fas fa-fist-raised"></i>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Obedience -->
+        <div class="value-card bg-white p-6 shadow-md" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-5xl font-bold text-blue-500 mb-4 fun-font text-center">O</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Obedience</h3>
+          <p class="text-gray-700 text-center">
+            Following the Word no matter the Cost.
+          </p>
+          <div class="mt-4 flex justify-center">
+            <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-full flex items-center justify-center icon-bounce">
+              <i class="fas fa-hand-paper"></i>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Dedication -->
+        <div class="value-card bg-white p-6 shadow-md" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-5xl font-bold text-blue-500 mb-4 fun-font text-center">D</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Dedication</h3>
+          <p class="text-gray-700 text-center">
+            The audacity to work until Christ is established on Earth in Nations.
+          </p>
+          <div class="mt-4 flex justify-center">
+            <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-full flex items-center justify-center icon-bounce">
+              <i class="fas fa-fire"></i>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Spirit -->
+        <div class="value-card bg-white p-6 shadow-md" data-aos="fade-up" data-aos-delay="400">
+          <div class="text-5xl font-bold text-blue-500 mb-4 fun-font text-center">S</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Spirit</h3>
+          <p class="text-gray-700 text-center">
+            To live the Spirit-Filled, Spirit-Instructed, Spirit-Led, Spirit-Answering Kind of Life.
+          </p>
+          <div class="mt-4 flex justify-center">
+            <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-full flex items-center justify-center icon-bounce">
+              <i class="fas fa-dove"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Vision -->
+        <div class="mission-card bg-blue-50 p-8 rounded-xl" data-aos="fade-right">
+          <div class="flex items-center mb-6">
+            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+              <i class="fas fa-eye text-xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 fun-font">Our Vision</h3>
+          </div>
+          <p class="text-gray-700 mb-4">
+            Raise children as gods (John 10:35) who build nations.
+          </p>
+          <div class="bg-white p-4 rounded-lg shadow-sm">
+            <p class="text-blue-600 italic">
+              "Jesus answered them, 'Is it not written in your Law, "I have said you are gods"?'" <br>
+              <span class="font-bold">- John 10:35</span>
+            </p>
+          </div>
+        </div>
+        
+        <!-- Mission -->
+        <div class="mission-card bg-amber-50 p-8 rounded-xl" data-aos="fade-left">
+          <div class="flex items-center mb-6">
+            <div class="bg-amber-100 text-amber-600 p-3 rounded-full mr-4">
+              <i class="fas fa-bullseye text-xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 fun-font">Our Mission</h3>
+          </div>
+          <p class="text-gray-700">
+            To bring a billion children to love, learn & live God's word and by that bring nations to Christ's feet. We would help them develop their spirit, deploy their skills and serve nobles.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <div class="bg-white text-amber-600 px-3 py-1 rounded-full text-xs font-medium">
+              Spirit Development
+            </div>
+            <div class="bg-white text-amber-600 px-3 py-1 rounded-full text-xs font-medium">
+              Skills Deployment
+            </div>
+            <div class="bg-white text-amber-600 px-3 py-1 rounded-full text-xs font-medium">
+              Noble Service
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Goals Section -->
+  <section class="py-16 gradient-bg text-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold mb-4 fun-font">Our Goals</h2>
+        <div class="w-20 h-1 bg-amber-300 mx-auto"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover-grow" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center mb-4">
+            <div class="bg-amber-300 text-blue-800 p-3 rounded-full mr-4">
+              <i class="fas fa-cross text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Show Jesus Christ</h3>
+          </div>
+          <p class="text-gray-100">
+            Show the reality of our saviour, Jesus Christ to children.
+          </p>
+        </div>
+        
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover-grow" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center mb-4">
+            <div class="bg-amber-300 text-blue-800 p-3 rounded-full mr-4">
+              <i class="fas fa-dove text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Walk with the Spirit</h3>
+          </div>
+          <p class="text-gray-100">
+            Help children walk with the Spirit of God, all their days.
+          </p>
+        </div>
+        
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover-grow" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center mb-4">
+            <div class="bg-amber-300 text-blue-800 p-3 rounded-full mr-4">
+              <i class="fas fa-lightbulb text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Discover Skills</h3>
+          </div>
+          <p class="text-gray-100">
+            Help children discover the skills to unleash their talents through God.
+          </p>
+        </div>
+        
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover-grow" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex items-center mb-4">
+            <div class="bg-amber-300 text-blue-800 p-3 rounded-full mr-4">
+              <i class="fas fa-star text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Be Examples</h3>
+          </div>
+          <p class="text-gray-100">
+            Raise children who are examples in their conduct as a model of a new nation.
+          </p>
+        </div>
+        
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover-grow" data-aos="fade-up" data-aos-delay="500">
+          <div class="flex items-center mb-4">
+            <div class="bg-amber-300 text-blue-800 p-3 rounded-full mr-4">
+              <i class="fas fa-flag text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Deliver Nations</h3>
+          </div>
+          <p class="text-gray-100">
+            Deliver nations (Nigeria) by the god-children raised as leaders in their fields.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 Decades Covenant Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 fun-font">The 7 Decade Covenant</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Our commitment to build a new Nigeria through god-children
+        </p>
+        <div class="w-20 h-1 bg-blue-500 mx-auto mt-4"></div>
+      </div>
+      
+      <div class="flex flex-col lg:flex-row items-center">
+        <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8" data-aos="fade-right">
+          <img src="images/IMG 2.jpg" 
+               alt="Nigeria flag" 
+               class="rounded-lg shadow-xl w-full h-auto border-4 border-amber-300">
+        </div>
+        
+        <div class="lg:w-1/2" data-aos="fade-left">
+          <p class="text-gray-700 mb-6">
+            In October 2022, KidsInspiring Nation entered into a sacred covenant with God - to dedicate <span class="font-bold text-blue-600">7 decades (70 years)</span> to raising god-children who will transform Nigeria into the nation God destined it to be.
+          </p>
+          <p class="text-gray-700 mb-6">
+            This covenant operates on the principle of <span class="font-bold text-amber-600">"Every day, a decade"</span> - meaning each day of ministry counts as a decade in the spirit. Through this, we're accelerating the transformation of our nation.
+          </p>
+          <p class="text-gray-700 mb-6">
+            The 7 Decade Covenant focuses on raising leaders in every sector who will:
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <div class="bg-blue-100 text-blue-600 rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                <i class="fas fa-check text-xs"></i>
+              </div>
+              <span class="text-gray-700">Govern with godly wisdom</span>
+            </li>
+            <li class="flex items-start">
+              <div class="bg-blue-100 text-blue-600 rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                <i class="fas fa-check text-xs"></i>
+              </div>
+              <span class="text-gray-700">Solve Nigeria's greatest challenges</span>
+            </li>
+            <li class="flex items-start">
+              <div class="bg-blue-100 text-blue-600 rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                <i class="fas fa-check text-xs"></i>
+              </div>
+              <span class="text-gray-700">Establish righteous systems</span>
+            </li>
+            <li class="flex items-start">
+              <div class="bg-blue-100 text-blue-600 rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                <i class="fas fa-check text-xs"></i>
+              </div>
+              <span class="text-gray-700">Be examples to other nations</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Decades Timeline -->
+      <div class="mt-16" data-aos="fade-up">
+        <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center fun-font">Our Decadal Focus</h3>
+        
+        <div class="grid md:grid-cols-7 gap-4">
+          <div class="decade-item bg-blue-50 p-4 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-blue-100 text-blue-600 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">1</div>
+            <h4 class="font-bold text-blue-600">Foundation</h4>
+            <p class="text-gray-700 text-sm">Establishing god-cells nationwide</p>
+          </div>
+          <div class="decade-item bg-blue-50 p-4 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-blue-100 text-blue-600 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">2</div>
+            <h4 class="font-bold text-blue-600">Growth</h4>
+            <p class="text-gray-700 text-sm">Expanding to all 36 states</p>
+          </div>
+          <div class="decade-item bg-blue-50 p-4 rounded-lg text-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-blue-100 text-blue-600 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">3</div>
+            <h4 class="font-bold text-blue-600">Influence</h4>
+            <p class="text-gray-700 text-sm">Transforming education systems</p>
+          </div>
+          <div class="decade-item bg-blue-50 p-4 rounded-lg text-center" data-aos="fade-up" data-aos-delay="400">
+            <div class="bg-blue-100 text-blue-600 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">4</div>
+            <h4 class="font-bold text-blue-600">Leadership</h4>
+            <p class="text-gray-700 text-sm">Raising godly leaders in government</p>
+          </div>
+          <div class="decade-item bg-blue-50 p-4 rounded-lg text-center" data-aos="fade-up" data-aos-delay="500">
+            <div class="bg-blue-100 text-blue-600 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">5</div>
+            <h4 class="font-bold text-blue-600">Innovation</h4>
+            <p class="text-gray-700 text-sm">Solving national challenges</p>
+          </div>
+          <div class="decade-item bg-blue-50 p-4 rounded-lg text-center" data-aos="fade-up" data-aos-delay="600">
+            <div class="bg-blue-100 text-blue-600 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">6</div>
+            <h4 class="font-bold text-blue-600">Transformation</h4>
+            <p class="text-gray-700 text-sm">National spiritual awakening</p>
+          </div>
+          <div class="decade-item bg-blue-50 p-4 rounded-lg text-center" data-aos="fade-up" data-aos-delay="700">
+            <div class="bg-blue-100 text-blue-600 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">7</div>
+            <h4 class="font-bold text-blue-600">Legacy</h4>
+            <p class="text-gray-700 text-sm">Sustainable godly systems</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Origins Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 fun-font">How Our Programs Began</h2>
+        <div class="w-20 h-1 bg-blue-500 mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Devotional -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover-grow" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-book-bible text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Daily Devotional</h3>
+          <p class="text-gray-700 text-sm">
+            Born from a 2018 prayer meeting where children asked for daily guidance. Started with just 5 children, now reaches thousands daily through our app and print materials.
+          </p>
+        </div>
+        
+        <!-- goDsCell -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover-grow" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-church text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">goDsCell</h3>
+          <p class="text-gray-700 text-sm">
+            Began in 2019 when children requested smaller groups for deeper scripture study. The name was revealed during a powerful prayer session where God called them "gods to the gods of nations."
+          </p>
+        </div>
+        
+        <!-- Psalm 119 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover-grow" data-aos="fade-up" data-aos-delay="300">
+          <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-trophy text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Psalm 119 Challenge</h3>
+          <p class="text-gray-700 text-sm">
+            Inspired by a 12-year-old who memorized the entire chapter in 2018. The national competition launched in 2020 with just 3 schools, now involving over 200 schools nationwide.
+          </p>
+        </div>
+        
+        <!-- goDs University -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover-grow" data-aos="fade-up" data-aos-delay="400">
+          <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-bible text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">goDs University</h3>
+          <p class="text-gray-700 text-sm">
+            Started in 2021 after children completed the New Testament in goDsCell. The two-year program now has graduated over 500 children who've read the entire Bible.
+          </p>
+        </div>
+        
+        <!-- TJC -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover-grow" data-aos="fade-up" data-aos-delay="500">
+          <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-music text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Jesus Christ Concert</h3>
+          <p class="text-gray-700 text-sm">
+            First held in 2018 as an alternative to secular Christmas shows. The concert has grown from 50 attendees to over 5,000, with children leading all aspects of production.
+          </p>
+        </div>
+        
+        <!-- goDx Experience  -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover-grow" data-aos="fade-up" data-aos-delay="600">
+          <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-university text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">goDx Experience</h3>
+          <p class="text-gray-700 text-sm">
+            Revealed in 2022 through Daniel 1:4-21 as a 5-stage discipleship model. Currently has 1,200 children progressing through the levels, with the first cohort reaching Level 3.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 fun-font">Join the Movement</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mb-8">
+        Be part of raising the next generation of god-children who will transform nations
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="programs.html" class="btn-primary text-white px-6 py-3 rounded-full font-medium fun-font">
+          Explore Programs
+        </a>
+        <a href="contact.html" class="btn-secondary px-6 py-3 rounded-full font-medium fun-font">
+          Get Involved
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <a href="index.html" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400 fun-font">
+            kidsinspiring
+          </a>
+          <p class="text-gray-400 mt-2">Raising gods who build nations.</p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center md:justify-end gap-6 mb-6 md:mb-0">
+          <div>
+            <h4 class="font-bold text-gray-100 mb-3 fun-font">Quick Links</h4>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+              <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Programs</a></li>
+              <li><a href="about.html" class="text-gray-400 hover:text-white transition">About</a></li>
+              <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold text-gray-100 mb-3 fun-font">Connect</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-white transition">Instagram</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition">Facebook</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition">YouTube</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition">Newsletter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 mb-4 md:mb-0">© 2025 KidsInspiring Nation. All rights reserved.</p>
+        
+        <div class="flex space-x-6">
+          <a href="https://web.facebook.com/KidsinspiringNation/" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://x.com/kidsinspiringN?t=dUiNjp7mpY6bdeWpsIxMSw&s=09" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/kidsinspiringnation/" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/@KidsInspiringNation" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize AOS animations
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+    
+    // Add fade-in animation to all text elements on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+          }
+        });
+      }, {threshold: 0.1});
+      
+      document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+</body>
+</html>

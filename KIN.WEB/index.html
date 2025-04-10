@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Kids Inspiring Nation - Raising Gods Who Build Nations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <style>
+   :root {
+      --primary: #3b82f6; /* Changed from orange to blue */
+      --secondary: #f59e0b;
+      --dark: #1a202c;
+      --light: #f7fafc;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    
+    .fun-font {
+      font-family: 'Fredoka One', cursive;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%); /* Updated to blue gradient */
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: var(--dark);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .hover-grow {
+      transition: all 0.3s ease;
+    }
+    
+    .hover-grow:hover {
+      transform: scale(1.02);
+    }
+    
+    .text-gradient {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--primary); /* Changed to blue */
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .value-card {
+      transition: all 0.3s ease;
+      perspective: 1000px;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary); /* Changed to blue */
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      left: -8px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--secondary);
+      border: 4px solid var(--primary); /* Changed to blue */
+    }
+    
+    .level-card {
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--primary); /* Changed to blue */
+    }
+    
+    .level-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .country-flag {
+      transition: all 0.3s ease;
+    }
+    
+    .country-flag:hover {
+      transform: scale(1.1) translateY(-5px);
+    }
+    
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(251, 191, 36, 0.2);
+      z-index: 0;
+    }
+    
+    .typing-text {
+      min-height: 60px;
+    }
+    
+    .typed-cursor {
+      color: var(--secondary);
+      font-size: 2.5rem;
+      animation: blink 0.7s infinite;
+    }
+    
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: var(--secondary);
+      opacity: 0;
+    }
+    
+    .sticker {
+      position: absolute;
+      background-color: var(--secondary);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      transform: rotate(-5deg);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 overflow-x-hidden">
+  <!-- Animated Background Elements -->
+  <div id="bubbles-container"></div>
+  <div id="confetti-container"></div>
+  
+  <!-- Sticker Elements -->
+  <div class="sticker hidden md:block" style="top: 100px; left: 5%;">Future Leaders!</div>
+  <div class="sticker hidden md:block" style="top: 300px; right: 5%;">Building Nations!</div>
+  <div class="sticker hidden md:block" style="bottom: 200px; left: 10%;">God's Children!</div>
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="index.html" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 fun-font">
+          kidsinspiring
+        </a>
+      </div>
+      
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+        <a href="programs.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Programs</a>
+        <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">About</a>
+        <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+        <a href="shop.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Shop</a>
+      </div>
+      
+      <a href="#donate" class="hidden md:block btn-primary text-white px-6 py-2 rounded-full font-medium pulse">
+        Donate Now
+      </a>
+      
+      <button class="md:hidden text-gray-700 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="gradient-bg text-white py-20 relative overflow-hidden">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center z-10 relative">
+      <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight fun-font">
+          Raising <span class="text-amber-300">gods</span> who build nations!
+        </h1>
+        
+        <!-- Typing Effect Container -->
+        <div class="typing-text text-2xl md:text-3xl font-bold mb-8 text-amber-200 h-20 flex items-center">
+          <span id="typed"></span>
+          <span class="typed-cursor">|</span>
+        </div>
+        
+        <p class="text-lg mb-8 text-gray-100">
+          KidsInspiring Nation began as a heart cry for children to build their Spirit. Today, it is a movement to build Nations by raising children with god-like powers.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#programs" class="btn-secondary px-6 py-3 rounded-full font-medium fun-font">
+            Our Programs
+          </a>
+          <a href="#donate" class="bg-white text-orange-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition fun-font">
+            Partner With Us
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+        <img src="Images/IMG 1.jpeg"
+             alt="Happy diverse group of children" 
+             class="rounded-lg shadow-xl floating max-w-md w-full h-auto border-4 border-amber-300">
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section id="story" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 fun-font">Our Story</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+      </div>
+      
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8" data-aos="fade-right">
+          <img src="images/IMG 3.png" 
+               alt="Children praying" 
+               class="rounded-lg shadow-lg w-full h-auto border-4 border-amber-200">
+        </div>
+        
+        <div class="md:w-1/2" data-aos="fade-left">
+          <p class="text-gray-700 mb-6">
+            KIDSINSPIRING began as a heart cry for the kingdom and our nation, Nigeria. Participating in the soul-winning drive of the Living Faith Church. In a conversation with the Spirit on soul-winning that is sustainable, the Spirit of God said:
+            <span class="italic font-medium text-orange-600">'the soul of a child is as important as the soul of an adult.'</span>
+          </p>
+          <p class="text-gray-700 mb-6">
+            Thus, in 2017, we began to teach children after Sunday school at the church. What began as an after Sunday school event began to take shape into a Children Ministry unto the nations. These children were to be raised as gods from Daniel 1:4,8,17,20,21. In other words, a god to the gods of nations.
+          </p>
+          <p class="text-gray-700">
+            Today, we have a 5-7 year god-university program that raises children in three main ways - their Spirit to God, their Skills in themselves & their Service to Nations. Over the last five years, KidsInspiring has continued, witnessing children & teenagers, on a regular and consistent basis.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Key Dates Timeline -->
+      <div class="mt-16" data-aos="fade-up">
+        <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center fun-font">Key Milestones</h3>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-l-4 border-amber-300">
+              <h4 class="font-bold text-orange-600 mb-2">Mid-2017</h4>
+              <p class="text-gray-700">KidsInspiring begins as a Sunday school program.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-l-4 border-amber-300">
+              <h4 class="font-bold text-orange-600 mb-2">2018</h4>
+              <p class="text-gray-700">TJC 1.0 - The Jesus Christ Concert - an event to herald Jesus Christ as the reason for the season of Christmas.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-l-4 border-amber-300">
+              <h4 class="font-bold text-orange-600 mb-2">Apr 2018</h4>
+              <p class="text-gray-700">Ps 119 challenge - a global challenge to get children to learn all 176 verses of Ps 119, the longest chapter in God's Word.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-l-4 border-amber-300">
+              <h4 class="font-bold text-orange-600 mb-2">2020</h4>
+              <p class="text-gray-700">KidsInspiring Global - the COVID 19 saw the participation of children from other nations of the world.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-l-4 border-amber-300">
+              <h4 class="font-bold text-orange-600 mb-2">Feb 2021</h4>
+              <p class="text-gray-700">The Scripture Class begins - a weekly class to drill down to the tenets of scripture.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-l-4 border-amber-300">
+              <h4 class="font-bold text-orange-600 mb-2">Sept 2021</h4>
+              <p class="text-gray-700">Psalm 119 Schools challenge - a push to make Psalm 119 as Ps 23 in our schools.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-l-4 border-amber-300">
+              <h4 class="font-bold text-orange-600 mb-2">Jan 2022</h4>
+              <p class="text-gray-700">The bible challenge - a two-year challenge to learn, love & live GOD'S word.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-l-4 border-amber-300">
+              <h4 class="font-bold text-orange-600 mb-2">Jul 2022</h4>
+              <p class="text-gray-700">KidsInspiring Nation - From 'Living an Inspiration' & 'raising gods' to 'raising gods, building nations.'</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission/Vision Section -->
+  <section class="py-16 gradient-bg text-white">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm hover-grow" data-aos="fade-right">
+          <div class="flex items-center mb-4">
+            <div class="bg-amber-300 text-orange-800 p-3 rounded-full mr-4">
+              <i class="fas fa-eye text-xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold fun-font">Our Vision</h3>
+          </div>
+          <p class="text-gray-100">
+            Raise children as gods (John 10:35) who build nations.
+          </p>
+        </div>
+        
+        <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm hover-grow" data-aos="fade-left">
+          <div class="flex items-center mb-4">
+            <div class="bg-amber-300 text-orange-800 p-3 rounded-full mr-4">
+              <i class="fas fa-bullseye text-xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold fun-font">Our Mission</h3>
+          </div>
+          <p class="text-gray-100">
+            To bring a billion children to love, learn & live God's word and by that bring nations to Christ's feet. We would help them develop their spirit, deploy their skills and serve nobles.
+          </p>
+        </div>
+      </div>
+      
+      <div class="mt-12" data-aos="fade-up">
+        <h3 class="text-2xl font-bold mb-6 text-center fun-font">Our Goals</h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white bg-opacity-10 p-6 rounded-lg hover-grow">
+            <div class="flex items-center mb-3">
+              <div class="w-8 h-8 bg-amber-300 rounded-full flex items-center justify-center text-orange-800 mr-3">
+                <i class="fas fa-check"></i>
+              </div>
+              <h4 class="font-bold">Show Jesus Christ</h4>
+            </div>
+            <p class="text-gray-100 text-sm">Show the reality of our saviour, Jesus Christ to children.</p>
+          </div>
+          
+          <div class="bg-white bg-opacity-10 p-6 rounded-lg hover-grow">
+            <div class="flex items-center mb-3">
+              <div class="w-8 h-8 bg-amber-300 rounded-full flex items-center justify-center text-orange-800 mr-3">
+                <i class="fas fa-check"></i>
+              </div>
+              <h4 class="font-bold">Walk with the Spirit</h4>
+            </div>
+            <p class="text-gray-100 text-sm">Help children walk with the Spirit of God, all their days.</p>
+          </div>
+          
+          <div class="bg-white bg-opacity-10 p-6 rounded-lg hover-grow">
+            <div class="flex items-center mb-3">
+              <div class="w-8 h-8 bg-amber-300 rounded-full flex items-center justify-center text-orange-800 mr-3">
+                <i class="fas fa-check"></i>
+              </div>
+              <h4 class="font-bold">Discover Skills</h4>
+            </div>
+            <p class="text-gray-100 text-sm">Help children discover the skills to unleash their talents through God.</p>
+          </div>
+          
+          <div class="bg-white bg-opacity-10 p-6 rounded-lg hover-grow">
+            <div class="flex items-center mb-3">
+              <div class="w-8 h-8 bg-amber-300 rounded-full flex items-center justify-center text-orange-800 mr-3">
+                <i class="fas fa-check"></i>
+              </div>
+              <h4 class="font-bold">Be Examples</h4>
+            </div>
+            <p class="text-gray-100 text-sm">Raise children who are examples in their conduct as a model of a new nation.</p>
+          </div>
+          
+          <div class="bg-white bg-opacity-10 p-6 rounded-lg hover-grow">
+            <div class="flex items-center mb-3">
+              <div class="w-8 h-8 bg-amber-300 rounded-full flex items-center justify-center text-orange-800 mr-3">
+                <i class="fas fa-check"></i>
+              </div>
+              <h4 class="font-bold">Deliver Nations</h4>
+            </div>
+            <p class="text-gray-100 text-sm">Deliver nations (Nigeria) by the god-children raised as leaders in their fields.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founding Scripture -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 fun-font">Our Founding Scripture</h2>
+        <p class="text-orange-600 font-medium">Daniel 1:4,8,17,20,21</p>
+        <div class="w-20 h-1 bg-orange-500 mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-t-4 border-amber-300" data-aos="fade-up" data-aos-delay="100">
+          <h4 class="font-bold text-orange-600 mb-2">Verse 4 - Selection</h4>
+          <p class="text-gray-700">
+            Children in whom is no blemish, but well favoured, skillful in knowledge, cunning in wisdom, understanding science, such as have the ability to stand before kings, that understand the tongue & learning of the chaldeans (nations).
+          </p>
+        </div>
+        
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-t-4 border-amber-300" data-aos="fade-up" data-aos-delay="200">
+          <h4 class="font-bold text-orange-600 mb-2">Verse 8 - Spirit</h4>
+          <p class="text-gray-700">
+            But Daniel purposed in his heart that he would not defile himself with the portion of the king's meat, nor with the wine which he drank: therefore he requested of the prince of the eunuchs that he might not defile himself.
+          </p>
+        </div>
+        
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-t-4 border-amber-300" data-aos="fade-up" data-aos-delay="300">
+          <h4 class="font-bold text-orange-600 mb-2">Verse 17 - Skills</h4>
+          <p class="text-gray-700">
+            As for these four children, God gave them knowledge and skill in all learning and wisdom: and Daniel had understanding in all visions and dreams.
+          </p>
+        </div>
+        
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-t-4 border-amber-300" data-aos="fade-up" data-aos-delay="400">
+          <h4 class="font-bold text-orange-600 mb-2">Verse 20 - Service</h4>
+          <p class="text-gray-700">
+            And in all matters of wisdom and understanding, that the king enquired of them, he found them ten times better than all the magicians and astrologers that were in all his realm.
+          </p>
+        </div>
+        
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-t-4 border-amber-300" data-aos="fade-up" data-aos-delay="500">
+          <h4 class="font-bold text-orange-600 mb-2">Verse 21 - Signs</h4>
+          <p class="text-gray-700">
+            And Daniel continued even unto the first year of king Cyrus.
+          </p>
+        </div>
+        
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover-grow border-t-4 border-amber-300" data-aos="fade-up" data-aos-delay="600">
+          <h4 class="font-bold text-orange-600 mb-2">The 7 Decade Covenant</h4>
+          <p class="text-gray-700">
+            Oct 2022 - Every day, a decade. A commitment to serve God for 70 years (7 decades) in raising god-children who will build nations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section id="values" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 fun-font">Our Core Values</h2>
+        <div class="flex justify-center">
+          <div class="text-4xl font-bold text-gradient fun-font">G.O.D.S</div>
+        </div>
+        <div class="w-20 h-1 bg-orange-500 mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="value-card bg-white p-6 rounded-lg shadow-md border-t-4 border-orange-500" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-5xl font-bold text-orange-500 mb-4 fun-font">G</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Grit</h3>
+          <p class="text-gray-700">
+            Never say Never, the ability to give all it takes.
+          </p>
+        </div>
+        
+        <div class="value-card bg-white p-6 rounded-lg shadow-md border-t-4 border-orange-500" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-5xl font-bold text-orange-500 mb-4 fun-font">O</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Obedience</h3>
+          <p class="text-gray-700">
+            Following the Word no matter the Cost.
+          </p>
+        </div>
+        
+        <div class="value-card bg-white p-6 rounded-lg shadow-md border-t-4 border-orange-500" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-5xl font-bold text-orange-500 mb-4 fun-font">D</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Dedication</h3>
+          <p class="text-gray-700">
+            The audacity to work until Christ is established on Earth in Nations.
+          </p>
+        </div>
+        
+        <div class="value-card bg-white p-6 rounded-lg shadow-md border-t-4 border-orange-500" data-aos="fade-up" data-aos-delay="400">
+          <div class="text-5xl font-bold text-orange-500 mb-4 fun-font">S</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Spirit</h3>
+          <p class="text-gray-700">
+            To live the Spirit-Filled, Spirit-Instructed, Spirit-Led, Spirit-Answering Kind of Life.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Mysteries -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 fun-font">Our Mysteries</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-orange-50 p-6 rounded-lg hover-grow" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center text-orange-600 mb-4">
+            <i class="fas fa-calendar-day text-xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-800 mb-2">KI Monthly Daily Affirmation</h3>
+          <p class="text-gray-700 text-sm">
+            Daily declarations are taken by the god-children daily.
+          </p>
+        </div>
+        
+        <div class="bg-orange-50 p-6 rounded-lg hover-grow" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center text-orange-600 mb-4">
+            <i class="fas fa-book-bible text-xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-800 mb-2">KI Declarations</h3>
+          <p class="text-gray-700 text-sm">
+            Scripture birthed content written and taken regularly to inculcate God's word.
+          </p>
+        </div>
+        
+        <div class="bg-orange-50 p-6 rounded-lg hover-grow" data-aos="fade-up" data-aos-delay="300">
+          <div class="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center text-orange-600 mb-4">
+            <i class="fas fa-pray text-xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-800 mb-2">KI Fasting</h3>
+          <p class="text-gray-700 text-sm">
+            God-children are required to fast at all weekly meetings.
+          </p>
+        </div>
+        
+        <div class="bg-orange-50 p-6 rounded-lg hover-grow" data-aos="fade-up" data-aos-delay="400">
+          <div class="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center text-orange-600 mb-4">
+            <i class="fas fa-user-tag text-xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-800 mb-2">KI 'god' prefix</h3>
+          <p class="text-gray-700 text-sm">
+            Each child accepted into KidsInspiring has the prefix 'god' in front of their names, referencing their DNA in God.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section id="programs" class="py-16 gradient-bg text-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold mb-4 fun-font">Our Programs</h2>
+        <div class="w-20 h-1 bg-amber-300 mx-auto"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover-grow" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center mb-4">
+            <div class="bg-amber-300 text-orange-800 p-3 rounded-full mr-4">
+              <i class="fas fa-pray text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Devotional</h3>
+          </div>
+          <p class="text-gray-100">
+            A daily time to read, discuss, pray and memorise God's WORD.
+          </p>
+        </div>
+        
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover-grow" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center mb-4">
+            <div class="bg-amber-300 text-orange-800 p-3 rounded-full mr-4">
+              <i class="fas fa-book-open text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Scripture Class</h3>
+          </div>
+          <p class="text-gray-100">
+            A weekly program to help children inculcate the tenets of Scripture as they learn, love & live the Word of God.
+          </p>
+        </div>
+        
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover-grow" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center mb-4">
+            <div class="bg-amber-300 text-orange-800 p-3 rounded-full mr-4">
+              <i class="fas fa-trophy text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">The Schools Challenge</h3>
+          </div>
+          <p class="text-gray-100">
+            A global challenge to reach schools and help children take up the Ps 119 challenge and commit to memorise all 176 verses of Psalm 119.
+          </p>
+        </div>
+        
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover-grow" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex items-center mb-4">
+            <div class="bg-amber-300 text-orange-800 p-3 rounded-full mr-4">
+              <i class="fas fa-bible text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">The Bible Challenge</h3>
+          </div>
+          <p class="text-gray-100">
+            A call to get children to finish the bible from Genesis to Revelation, with study notes.
+          </p>
+        </div>
+        
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover-grow" data-aos="fade-up" data-aos-delay="500">
+          <div class="flex items-center mb-4">
+            <div class="bg-amber-300 text-orange-800 p-3 rounded-full mr-4">
+              <i class="fas fa-music text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">The Jesus Christ Concert</h3>
+          </div>
+          <p class="text-gray-100">
+            A yearly event to mark the birth of Christ by giving children an opportunity to see Jesus Christ as the only reason.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Psalm 119 Challenge -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center">
+        <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8" data-aos="fade-right">
+          <img src="images/IMG 4.jpg"
+               class="rounded-lg shadow-lg w-full h-auto border-4 border-amber-300">
+        </div>
+        
+        <div class="lg:w-1/2" data-aos="fade-left">
+          <h2 class="text-3xl font-bold text-orange-500 mb-4 fun-font">Psalm 119 Challenge</h2>
+          <p class="text-gray-700 mb-6">
+            The Psalm 119 Challenge is an initiative of the KidsInspiring nation where children within the ages of 7 to 15 from primary and secondary schools across Nigeria learn Psalm 119 to compete for over One Million, One Hundred and Ninety One thousand, seven hundred and sixty Naira (1,191,760) in educational scholarships.
+          </p>
+          
+          <div class="bg-gray-50 p-6 rounded-lg mb-6 border-l-4 border-amber-300">
+            <h4 class="font-bold text-orange-500 mb-3">Challenge Timeline</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <div class="bg-amber-300 rounded-full w-5 h-5 flex-shrink-0 mt-1 mr-3"></div>
+                <span class="text-gray-700">March - April 2023 - Psalm 119 Schools Registration</span>
+              </li>
+              <li class="flex items-start">
+                <div class="bg-amber-300 rounded-full w-5 h-5 flex-shrink-0 mt-1 mr-3"></div>
+                <span class="text-gray-700">March - June 2023 - Psalm 119 Recitation by Students</span>
+              </li>
+              <li class="flex items-start">
+                <div class="bg-amber-300 rounded-full w-5 h-5 flex-shrink-0 mt-1 mr-3"></div>
+                <span class="text-gray-700">July 2023 - Psalm 119 Challenge Shortlisted Students</span>
+              </li>
+              <li class="flex items-start">
+                <div class="bg-amber-300 rounded-full w-5 h-5 flex-shrink-0 mt-1 mr-3"></div>
+                <span class="text-gray-700">Aug - Dec 2023 - Psalm 119 Challenge Grand Finale Preparation</span>
+              </li>
+              <li class="flex items-start">
+                <div class="bg-amber-300 rounded-full w-5 h-5 flex-shrink-0 mt-1 mr-3"></div>
+                <span class="text-gray-700">Dec 2023 - Psalm 119 Schools Challenge Grand Finale</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="flex space-x-4">
+            <a href="#" class="btn-primary text-white px-6 py-3 rounded-full font-medium fun-font">
+              Register Now
+            </a>
+            <a href="#donate" class="btn-secondary px-6 py-3 rounded-full font-medium fun-font">
+              Donate to this Cause
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- god-University Model -->
+  <section id="university" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 fun-font">The god-University Model</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Our Five Staged model as given by the Holy Spirit is a system to produce a god like Daniel of any child, in any nation, at a given stage of life.
+        </p>
+        <div class="w-20 h-1 bg-orange-500 mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div class="level-card bg-white p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-orange-100 text-orange-800 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-4">1</div>
+          <h3 class="font-bold text-gray-800 mb-2">Level 1 - Selection</h3>
+          <p class="text-gray-700 text-sm">
+            Ps. 119 Challenge - memorise & recite all 176 verses of the longest chapter in God's WORD.
+          </p>
+        </div>
+        
+        <div class="level-card bg-white p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-orange-100 text-orange-800 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-4">2</div>
+          <h3 class="font-bold text-gray-800 mb-2">Level 2 - Spirit</h3>
+          <p class="text-gray-700 text-sm">
+            The Bible Challenge - read & study all 1189 chapters of the bible.
+          </p>
+        </div>
+        
+        <div class="level-card bg-white p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+          <div class="bg-orange-100 text-orange-800 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-4">3</div>
+          <h3 class="font-bold text-gray-800 mb-2">Level 3 - Skills</h3>
+          <p class="text-gray-700 text-sm">
+            The Biography Challenge - learn the stories of 100 unique men/women who have impacted the world in different fields.
+          </p>
+        </div>
+        
+        <div class="level-card bg-white p-6 rounded-lg" data-aos="fade-up" data-aos-delay="400">
+          <div class="bg-orange-100 text-orange-800 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-4">4</div>
+          <h3 class="font-bold text-gray-800 mb-2">Level 4 - Service</h3>
+          <p class="text-gray-700 text-sm">
+            The 10,000 impact challenge - invest 10,000 hours using skills to serve the next generation and by that impact 1,000 young children.
+          </p>
+        </div>
+        
+        <div class="level-card bg-white p-6 rounded-lg" data-aos="fade-up" data-aos-delay="500">
+          <div class="bg-orange-100 text-orange-800 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-4">5</div>
+          <h3 class="font-bold text-gray-800 mb-2">Level 5 - Signs</h3>
+          <p class="text-gray-700 text-sm">
+            The Daniel challenge - solve the most challenging problems in their fields, industries, calling, and nations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nations Impacted -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 fun-font">Nations Impacted</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+      </div>
+      
+      <div class="flex flex-wrap justify-center gap-8">
+        <div class="country-flag flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-20 h-20 rounded-full overflow-hidden shadow-md mb-2 border-2 border-orange-300">
+            <img src="https://flagcdn.com/w160/ng.png" alt="Nigeria Flag" class="w-full h-full object-cover">
+          </div>
+          <span class="font-medium">Nigeria</span>
+        </div>
+        
+        <div class="country-flag flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-20 h-20 rounded-full overflow-hidden shadow-md mb-2 border-2 border-orange-300">
+            <img src="https://flagcdn.com/w160/za.png" alt="South Africa Flag" class="w-full h-full object-cover">
+          </div>
+          <span class="font-medium">South Africa</span>
+        </div>
+        
+        <div class="country-flag flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-20 h-20 rounded-full overflow-hidden shadow-md mb-2 border-2 border-orange-300">
+            <img src="https://flagcdn.com/w160/gb.png" alt="UK Flag" class="w-full h-full object-cover">
+          </div>
+          <span class="font-medium">United Kingdom</span>
+        </div>
+        
+        <div class="country-flag flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
+          <div class="w-20 h-20 rounded-full overflow-hidden shadow-md mb-2 border-2 border-orange-300">
+            <img src="https://flagcdn.com/w160/us.png" alt="USA Flag" class="w-full h-full object-cover">
+          </div>
+          <span class="font-medium">United States</span>
+        </div>
+        
+        <div class="country-flag flex flex-col items-center" data-aos="fade-up" data-aos-delay="500">
+          <div class="w-20 h-20 rounded-full overflow-hidden shadow-md mb-2 border-2 border-orange-300">
+            <img src="https://flagcdn.com/w160/ca.png" alt="Canada Flag" class="w-full h-full object-cover">
+          </div>
+          <span class="font-medium">Canada</span>
+        </div>
+        
+        <div class="country-flag flex flex-col items-center" data-aos="fade-up" data-aos-delay="600">
+          <div class="w-20 h-20 rounded-full overflow-hidden shadow-md mb-2 border-2 border-orange-300">
+            <img src="https://flagcdn.com/w160/jp.png" alt="Japan Flag" class="w-full h-full object-cover">
+          </div>
+          <span class="font-medium">Tokyo</span>
+        </div>
+        
+        <div class="country-flag flex flex-col items-center" data-aos="fade-up" data-aos-delay="700">
+          <div class="w-20 h-20 rounded-full overflow-hidden shadow-md mb-2 border-2 border-orange-300">
+            <img src="https://flagcdn.com/w160/de.png" alt="Germany Flag" class="w-full h-full object-cover">
+          </div>
+          <span class="font-medium">Germany</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donate Section -->
+  <section id="donate" class="py-16 gradient-bg text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+        <h2 class="text-3xl font-bold mb-6 fun-font">Partner With Us</h2>
+        <p class="text-xl mb-8 text-gray-100">
+          Our work would reach a billion children over the next 20 years. To do that, we need to be at the center of birthing, raising and nurturing children as gods. You can walk with God as a god-raiser in KIN through your giving.
+        </p>
+        <div class="flex justify-center space-x-4">
+          <a href="#" class="btn-secondary px-8 py-3 rounded-full font-medium text-lg fun-font">
+            Donate Now
+          </a>
+          <a href="#contact" class="bg-white text-orange-600 px-8 py-3 rounded-full font-medium text-lg hover:bg-gray-100 transition fun-font">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center">
+        <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8" data-aos="fade-right">
+          <img src="images/IMG 3.jpg" 
+               alt="Volunteers helping children" 
+               class="rounded-lg shadow-lg w-full h-auto border-4 border-amber-300">
+        </div>
+        
+        <div class="lg:w-1/2" data-aos="fade-left">
+          <h2 class="text-3xl font-bold text-orange-500 mb-4 fun-font">Volunteer With Us</h2>
+          <p class="text-gray-700 mb-6">
+            AT KIN, we volunteer as covenant servants. A covenant servant is one who has chosen to raise gods at KidsInspiring with their time, energy, resources and money.
+          </p>
+          
+          <div class="bg-gray-50 p-6 rounded-lg mb-6 border-l-4 border-amber-300">
+            <h4 class="font-bold text-orange-500 mb-3">3 Core Tripod System</h4>
+            <ul class="space-y-4">
+              <li>
+                <h5 class="font-bold text-gray-800">Spirit</h5>
+                <p class="text-gray-700 text-sm">
+                  It is our core, the foundation of everything we do at the KIN. The Spirit deals with praying the Holy Spirit, hearing the voice of God's Spirit, walking with and by the Spirit, and knowing the Spirit of Christ as a Friend.
+                </p>
+              </li>
+              <li>
+                <h5 class="font-bold text-gray-800">Skills</h5>
+                <p class="text-gray-700 text-sm">
+                  There is a gift God has deposited in every god-children. Something no school can teach and no one in the world can outcompete. That skill is the gifting for which they were created. Therefore, it is expected that each god develops their skills until they become icons to their world.
+                </p>
+              </li>
+              <li>
+                <h5 class="font-bold text-gray-800">Service</h5>
+                <p class="text-gray-700 text-sm">
+                  Every god is on a covenant to serve God in their generation or 7 decades. The primary way to serve God is using their Spirit through their skills to solve national & global challenges that would cause the world to look unto Jesus Christ, the Faith of the WORLD.
+                </p>
+              </li>
+            </ul>
+          </div>
+          
+          <a href="#" class="btn-primary text-white px-8 py-3 rounded-full font-medium text-lg fun-font">
+            Join the Team
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Add before the footer -->
+<section class="py-16 bg-orange-50">
+  <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 fun-font">Test Your Bible Knowledge!</h2>
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+      <div id="quiz-container">
+        <p class="text-lg mb-6" id="quiz-question">Loading quiz...</p>
+        <div id="quiz-options" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"></div>
+        <button id="quiz-next" class="btn-primary text-white px-6 py-2 rounded-full font-medium hidden">
+          Next Question
+        </button>
+      </div>
+      <div id="quiz-result" class="hidden">
+        <h3 class="text-2xl font-bold text-orange-600 mb-4">Your Score: <span id="quiz-score">0</span>/5</h3>
+        <p class="mb-6" id="quiz-feedback"></p>
+        <button id="quiz-restart" class="btn-secondary px-6 py-2 rounded-full font-medium">
+          Try Again
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Add to the script section
+  document.addEventListener('DOMContentLoaded', function() {
+    const quizQuestions = [
+      {
+        question: "How many verses are in Psalm 119?",
+        options: ["150", "176", "200", "118"],
+        answer: 1
+      },
+      {
+        question: "Who was thrown into the lion's den?",
+        options: ["David", "Daniel", "Samuel", "Joseph"],
+        answer: 1
+      },
+      {
+        question: "How many books are in the Bible?",
+        options: ["27", "39", "66", "72"],
+        answer: 2
+      },
+      {
+        question: "What was Jesus' first miracle?",
+        options: ["Healing the blind", "Walking on water", "Turning water to wine", "Raising Lazarus"],
+        answer: 2
+      },
+      {
+        question: "How many disciples did Jesus have?",
+        options: ["7", "12", "40", "144"],
+        answer: 1
+      }
+    ];
+    
+    let currentQuestion = 0;
+    let score = 0;
+    const quizContainer = document.getElementById('quiz-container');
+    const quizResult = document.getElementById('quiz-result');
+    const quizQuestion = document.getElementById('quiz-question');
+    const quizOptions = document.getElementById('quiz-options');
+    const quizNext = document.getElementById('quiz-next');
+    const quizScore = document.getElementById('quiz-score');
+    const quizFeedback = document.getElementById('quiz-feedback');
+    const quizRestart = document.getElementById('quiz-restart');
+    
+    function loadQuestion() {
+      if (currentQuestion >= quizQuestions.length) {
+        showResults();
+        return;
+      }
+      
+      const question = quizQuestions[currentQuestion];
+      quizQuestion.textContent = question.question;
+      quizOptions.innerHTML = '';
+      
+      question.options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.className = 'bg-gray-100 hover:bg-orange-100 px-4 py-3 rounded-lg transition text-left';
+        button.textContent = option;
+        button.onclick = () => checkAnswer(index);
+        quizOptions.appendChild(button);
+      });
+      
+      quizNext.classList.add('hidden');
+    }
+    
+    function checkAnswer(selectedIndex) {
+      const question = quizQuestions[currentQuestion];
+      const optionButtons = quizOptions.querySelectorAll('button');
+      
+      optionButtons.forEach((button, index) => {
+        button.disabled = true;
+        if (index === question.answer) {
+          button.classList.add('bg-green-100', 'text-green-800');
+        } else if (index === selectedIndex && index !== question.answer) {
+          button.classList.add('bg-red-100', 'text-red-800');
+        }
+      });
+      
+      if (selectedIndex === question.answer) {
+        score++;
+      }
+      
+      quizNext.classList.remove('hidden');
+    }
+    
+    function showResults() {
+      quizContainer.classList.add('hidden');
+      quizResult.classList.remove('hidden');
+      quizScore.textContent = score;
+      
+      if (score === quizQuestions.length) {
+        quizFeedback.textContent = "Amazing! You're a Bible expert! Just like the children we're raising!";
+      } else if (score >= quizQuestions.length / 2) {
+        quizFeedback.textContent = "Good job! You know your Bible well. Keep studying God's word!";
+      } else {
+        quizFeedback.textContent = "Keep learning! Our programs help children grow in Bible knowledge every day.";
+      }
+      
+      createConfetti();
+    }
+    
+    quizNext.addEventListener('click', function() {
+      currentQuestion++;
+      loadQuestion();
+    });
+    
+    quizRestart.addEventListener('click', function() {
+      currentQuestion = 0;
+      score = 0;
+      quizContainer.classList.remove('hidden');
+      quizResult.classList.add('hidden');
+      loadQuestion();
+    });
+    
+    loadQuestion();
+  });
+</script>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <a href="#" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400 fun-font">
+            kidsinspiring
+          </a>
+          <p class="text-gray-400 mt-2">Raising gods who build nations.</p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center md:justify-end gap-6 mb-6 md:mb-0">
+          <div>
+            <h4 class="font-bold text-gray-100 mb-3 fun-font">Quick Links</h4>
+            <ul class="space-y-2">
+              <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+              <li><a href="#story" class="text-gray-400 hover:text-white transition">Our Story</a></li>
+              <li><a href="#programs" class="text-gray-400 hover:text-white transition">Programs</a></li>
+              <li><a href="#values" class="text-gray-400 hover:text-white transition">Core Values</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold text-gray-100 mb-3 fun-font">Get Involved</h4>
+            <ul class="space-y-2">
+              <li><a href="#donate" class="text-gray-400 hover:text-white transition">Donate</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition">Volunteer</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition">Partner</a></li>
+              <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold text-gray-100 mb-3 fun-font">Legal</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 mb-4 md:mb-0">© 2023 KidsInspiring Nation. All rights reserved.</p>
+        
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize AOS animations
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+    
+    // Typing Effect
+    document.addEventListener('DOMContentLoaded', function() {
+      var typed = new Typed('#typed', {
+        strings: [
+          'Inspiring the Next Generation',
+          'In 7 Decades Nigeria will be built'
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 2000,
+        startDelay: 500,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|'
+      });
+    });
+    
+    // Create floating bubbles
+    function createBubbles() {
+      const container = document.getElementById('bubbles-container');
+      const colors = ['rgba(251, 191, 36, 0.2)', 'rgba(249, 115, 22, 0.2)', 'rgba(253, 230, 138, 0.2)'];
+      
+      for (let i = 0; i < 15; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        
+        // Random size between 20px and 100px
+        const size = Math.random() * 80 + 20;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        
+        // Random position
+        bubble.style.left = `${Math.random() * 100}%`;
+        bubble.style.top = `${Math.random() * 100}%`;
+        
+        // Random color
+        bubble.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Random animation
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
+        bubble.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+        
+        container.appendChild(bubble);
+      }
+    }
+    
+    // Create confetti effect
+    function createConfetti() {
+      const container = document.getElementById('confetti-container');
+      const colors = ['#f59e0b', '#f97316', '#fbbf24', '#fdba74'];
+      
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        
+        // Random size between 5px and 15px
+        const size = Math.random() * 10 + 5;
+        confetti.style.width = `${size}px`;
+        confetti.style.height = `${size}px`;
+        
+        // Random position
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.top = `-10px`;
+        
+        // Random color
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Random animation
+        const duration = Math.random() * 3 + 2;
+        const delay = Math.random() * 5;
+        const rotation = Math.random() * 360;
+        
+        // Animate confetti falling
+        setTimeout(() => {
+          confetti.style.opacity = '1';
+          confetti.style.transform = `translateY(${window.innerHeight + 100}px) rotate(${rotation}deg)`;
+          confetti.style.transition = `transform ${duration}s linear`;
+        }, delay * 1000);
+        
+        // Remove confetti after animation
+        setTimeout(() => {
+          confetti.remove();
+        }, (duration + delay) * 1000);
+        
+        container.appendChild(confetti);
+      }
+    }
+    
+    // Initialize effects
+    createBubbles();
+    
+    // Create confetti periodically
+    setInterval(createConfetti, 3000);
+    
+    // Create confetti on button clicks
+    document.querySelectorAll('a, button').forEach(element => {
+      element.addEventListener('click', function() {
+        if(this.getAttribute('href') !== '#') {
+          createConfetti();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
